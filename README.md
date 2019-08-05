@@ -11,8 +11,6 @@ yarn
 yarn dev
 ```
 
-If you want to have your own login for testing, please send an email to passify.io@gmail.com.
-
 ## Features Completed
 
 - [x] SP-init SSO, Azure IDP with (redirect/post) binding (Encrypted/Signed/Encrypted + Sign)
