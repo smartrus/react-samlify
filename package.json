@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack-dev-server --hot --mode development --open"
+    "dev": "webpack-dev-server --hot --mode development --open --https --cert ssl/certificate.pem --key ssl/key.pem"
   },
   "dependencies": {
     "@authenio/samlify-node-xmllint": "^1.0.1",

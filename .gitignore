@@ -3,3 +3,6 @@ package-lock.json
 yarn.lock
 .DS_STORE
 dist
+ssl
+*.pem
+*.cer

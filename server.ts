@@ -16,7 +16,15 @@ export default function server(app) {
   app.post('/sp/acs', async (req, res) => {
     try {
       const { extract } = await req.sp.parseLoginResponse(req.idp, 'post', req);
-      const { login } = extract.attributes;
+
+      const login = extract.nameID;
+
+      // console log
+      console.log(extract.nameID);
+
+      // console log
+      console.log(login);
+
       // get your system user
       const payload = getUser(login);
 
@@ -30,7 +38,7 @@ export default function server(app) {
       }
       throw new Error('ERR_USER_NOT_FOUND');
     } catch (e) {
-      console.error('[FATAL] when parsing login response sent from okta', e);
+      console.error('[FATAL] when parsing login response sent from azure', e);
       return res.redirect('/');
     }
   });

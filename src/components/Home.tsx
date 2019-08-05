@@ -41,7 +41,7 @@ export function Home(props: Props) {
 
   const [authenticated, setAuthenticated] = useState<boolean>(false);
   const [profile, setProfile] = useState<Profile>({ email: null });
-  const [samlOption, setSamlOption] = useState<SamlOption>({ encrypted: true });
+  const [samlOption, setSamlOption] = useState<SamlOption>({ encrypted: false });
 
   const parseQuery = () => {
     console.log('--------->>>', samlOption);
@@ -124,29 +124,17 @@ export function Home(props: Props) {
       <Container>
         <div className="">
           <Button onClick={() => initRedirectRequest()}>
-            Okta - redirect
+            Azure - redirect
           </Button>
           <Button onClick={() => initPostRequest()}>
-            Okta - post
+            Azure - post
           </Button>
           <Button onClick={() => viewSpMetadata()}>
             SP Metadata
           </Button>
           <Button onClick={() => viewIdpMetadata()}>
-            Okta Metadata
+            Azure Metadata
           </Button>
-        </div>
-        <div className="pb2 f6 silver mv3 bb b--black-20 bw1 tc">Options</div>
-        <div>
-          <label className="cb-container f6 silver flex">
-            <span>with encryption</span>
-            <input
-              type="checkbox"
-              defaultChecked={samlOption.encrypted}
-              onClick={() => toggleEncrypted()}
-            />
-            <span className="checkmark"></span>
-          </label> 
         </div>
       </Container>
     );
@@ -158,7 +146,6 @@ export function Home(props: Props) {
     <div className="flex flex-column">
       <span className="mb3">Welcome back <b>{profile.email}</b></span>
       <Button onClick={() => logout()}>Logout</Button>
-      <Button onClick={() => singleLogoutRedirect()}>Single Logout (Redirect)</Button>
     </div>
   </Container>
 
